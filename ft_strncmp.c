@@ -6,7 +6,7 @@
 /*   By: ydemyden <ydemyden@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 20:43:18 by ydemyden          #+#    #+#             */
-/*   Updated: 2024/06/05 20:12:14 by ydemyden         ###   ########.fr       */
+/*   Updated: 2024/07/31 19:42:47 by ydemyden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 // 0 if the s1 = s2
 // negative value if s1 < s2
 // positive value if s1 > s2
-#include <stdio.h>
+#include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

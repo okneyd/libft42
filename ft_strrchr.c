@@ -1,46 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ydemyden <ydemyden@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 17:02:44 by ydemyden          #+#    #+#             */
-/*   Updated: 2024/06/09 19:05:01 by ydemyden         ###   ########.fr       */
+/*   Created: 2024/05/28 18:23:58 by ydemyden          #+#    #+#             */
+/*   Updated: 2024/07/31 19:43:30 by ydemyden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// string scanning operation || locate the FIRST occurrence of c
+// string scanning operation || locate the LAST occurrence of c
 // (converted to a char) in the string pointed to by s.  The
 // terminating NUL character is considered to be part of the string.
-#include <stdio.h>
+#include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	int	z;
+	int					i;
+	unsigned const char	*ps;
 
-	z = 0;
-	while (s[z] != '\0')
-	{
-		if (s[z] == c)
-			return ((char *)&s[z]);
-		z++;
-	}
+	ps = (unsigned const char *)s;
+	i = 0;
+	i = ft_strlen(s);
 	if (c == '\0')
-		return ((char *)&s[z]);
+	{
+		return ((char *)&s[i]);
+	}
+	while (i != 0)
+	{
+		if (s[i - 1] == c)
+		{
+			return ((char *)&s[i - 1]);
+		}
+		i--;
+	}
 	return (NULL);
 }
 
 // int main(void)
 // {
-// 	char *tt = ft_strchr("bonjour", '\0');
+// 	char *tt = ft_strrchr("bonjour", 'b');
 // 	printf("%p", tt);
 // 	printf("%c", *tt);
-// 	return (0);
-// }
-// int main(void)
-// {
-// 	printf("%s", ft_strchr("bonjour", 'j'));
-// 	//printf("%c", *tt);
 // 	return (0);
 // }

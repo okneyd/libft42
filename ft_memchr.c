@@ -6,14 +6,14 @@
 /*   By: ydemyden <ydemyden@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 21:08:31 by ydemyden          #+#    #+#             */
-/*   Updated: 2024/06/01 15:45:47 by ydemyden         ###   ########.fr       */
+/*   Updated: 2024/07/31 19:42:07 by ydemyden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // scan the first n bytes of the memory area pointed to by the void 
 // pointer for the first occurrence of the character c. It returns a 
 // pointer to the matching byte or NULL if character does not occur
-#include <stdio.h>
+#include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

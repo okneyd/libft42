@@ -1,44 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ydemyden <ydemyden@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 20:08:03 by ydemyden          #+#    #+#             */
-/*   Updated: 2024/05/27 18:59:44 by ydemyden         ###   ########.fr       */
+/*   Created: 2024/05/24 18:22:42 by ydemyden          #+#    #+#             */
+/*   Updated: 2024/07/31 19:42:22 by ydemyden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// erases the data in the n bytes of the memory
-// starting at the location pointed to by s, by writing zeros 
-// (bytes containing '\0') to that area
-#include <stdio.h>
+// fills the first 'n' bytes of memory area pointed to by 's'
+// with the argument constant byte 'c'
+// || fill a block of memory with a particular value
+#include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
 	size_t	z;
 	char	*ps;
 
 	z = 0;
 	ps = (char *)s;
-	while (n != 0)
+	while (n != z)
 	{
-		ps[z] = 0;
+		ps[z] = c;
 		z++;
-		n--;
 	}
+	return (s);
 }
 
-// #include <string.h>
 // int main(void)
 // {
 // 	char str[] = "Yana";
-// 	int len = strlen(str);
-// 	ft_bzero(str, len);
-// 	for (int i = 0; i < len; i++) 
-// 	{
-// 		printf("%d ", (int)str[i]);
-// 	}
-// 	return 0;
+// 	ft_memset(str, 's', 3);
+// 	printf("%s", str);
+// 	return (0);
 // }

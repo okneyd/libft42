@@ -11,6 +11,7 @@ SOURCES = \
 	ft_memcpy.c \
 	ft_memmove.c \
 	ft_strlcpy.c \
+	ft_strlcat.c \
 	ft_toupper.c \
 	ft_tolower.c \
 	ft_strchr.c \
@@ -18,6 +19,16 @@ SOURCES = \
 	ft_strncmp.c \
 	ft_memchr.c \
 	ft_memcmp.c \
+	ft_strnstr.c \
+	ft_atoi.c \
+	ft_calloc.c \
+	ft_strdup.c\
+	ft_substr.c\
+	ft_strjoin.c\
+	ft_strtrim.c\
+	ft_itoa.c\
+	ft_strmapi.c\
+	ft_striteri.c\
 
 MAKE = \
 	Makefile \
@@ -27,6 +38,7 @@ OBJECTS = $(SOURCES:.c=.o)
 
 CFLAGS = -Wall -Wextra -Werror
 CC = cc
+AR = ar
 perms:
 	chmod 777 $(SOURCES)
 	chmod 777 $(MAKE)

@@ -6,13 +6,13 @@
 /*   By: ydemyden <ydemyden@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 19:07:57 by ydemyden          #+#    #+#             */
-/*   Updated: 2024/06/12 21:40:31 by ydemyden         ###   ########.fr       */
+/*   Updated: 2024/07/31 19:42:52 by ydemyden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // locates the first occurrence of the null-terminated string little 
 // in the string big, where not more than len characters are searched. 
-#include <stdio.h>
+#include "libft.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {

@@ -6,13 +6,13 @@
 /*   By: ydemyden <ydemyden@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 20:20:42 by ydemyden          #+#    #+#             */
-/*   Updated: 2024/05/26 19:21:32 by ydemyden         ###   ########.fr       */
+/*   Updated: 2024/07/31 19:42:15 by ydemyden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // copies n bytes from memory area src to memory area dest.
 // The memory areas must not overlap (for overlaps is memmove)
-#include <stdio.h>
+#include "libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {

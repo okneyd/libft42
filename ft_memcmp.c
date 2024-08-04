@@ -6,14 +6,14 @@
 /*   By: ydemyden <ydemyden@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 13:21:13 by ydemyden          #+#    #+#             */
-/*   Updated: 2024/06/05 19:51:53 by ydemyden         ###   ########.fr       */
+/*   Updated: 2024/07/31 19:42:11 by ydemyden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // compares the first n bytes (each interpreted as unsigned char) 
 // > 0, < 0 if s1/s2 is found
 // 0 if n = 0
-#include <stdio.h>
+#include "libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

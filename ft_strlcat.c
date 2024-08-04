@@ -6,14 +6,13 @@
 /*   By: ydemyden <ydemyden@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 19:18:54 by ydemyden          #+#    #+#             */
-/*   Updated: 2024/06/09 19:06:37 by ydemyden         ###   ########.fr       */
+/*   Updated: 2024/07/31 19:42:34 by ydemyden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // used to copy a str to dst and returns their (both) length. 
 // It takes the destination string, the source string, and the size 
 // of the destination string
-#include <stdio.h>
 #include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)

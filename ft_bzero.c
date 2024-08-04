@@ -1,33 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ydemyden <ydemyden@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 18:13:14 by ydemyden          #+#    #+#             */
-/*   Updated: 2024/05/27 19:14:57 by ydemyden         ###   ########.fr       */
+/*   Created: 2024/05/24 20:08:03 by ydemyden          #+#    #+#             */
+/*   Updated: 2024/07/31 19:41:50 by ydemyden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// calculates the length of a string, not including '\0'
-#include <stdio.h>
+// erases the data in the n bytes of the memory
+// starting at the location pointed to by s, by writing zeros 
+// (bytes containing '\0') to that area
+#include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_bzero(void *s, size_t n)
 {
 	size_t	z;
+	char	*ps;
 
 	z = 0;
-	while (s[z] != '\0')
+	ps = (char *)s;
+	while (n != 0)
 	{
+		ps[z] = 0;
 		z++;
+		n--;
 	}
-	return (z);
 }
 
+// #include <string.h>
 // int main(void)
 // {
-// 	size_t tt = ft_strlen("Yana");
-// 	printf("%zu", tt);
-// 	return (0);
+// 	char str[] = "Yana";
+// 	int len = strlen(str);
+// 	ft_bzero(str, len);
+// 	for (int i = 0; i < len; i++) 
+// 	{
+// 		printf("%d ", (int)str[i]);
+// 	}
+// 	return 0;
 // }

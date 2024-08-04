@@ -6,13 +6,13 @@
 /*   By: ydemyden <ydemyden@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 15:36:37 by ydemyden          #+#    #+#             */
-/*   Updated: 2024/06/01 15:43:31 by ydemyden         ###   ########.fr       */
+/*   Updated: 2024/07/31 19:42:19 by ydemyden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // copies n bytes from memory area src to memory area dest
 // using a temporary array. The memory areas may overlap
-#include <stdio.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
