@@ -29,30 +29,32 @@ SOURCES = \
 	ft_itoa.c\
 	ft_strmapi.c\
 	ft_striteri.c\
-
-MAKE = \
-	Makefile \
-	libft.h \
+	ft_putchar_fd.c\
+	ft_putstr_fd.c\
+	ft_putendl_fd.c\
+	ft_putnbr_fd.c\
 
 OBJECTS = $(SOURCES:.c=.o)
 
 CFLAGS = -Wall -Wextra -Werror
 CC = cc
 AR = ar
-perms:
-	chmod 777 $(SOURCES)
-	chmod 777 $(MAKE)
+
 all: $(NAME)
+
 $(NAME): $(OBJECTS)
-	$(AR) -r $(NAME) $?
-	chmod 777 $(NAME)
-allc: all clean
+	$(AR) rcs $(NAME) $(OBJECTS)
+
 %.o: %.c
-	$(CC) -c $(CFLAGS) $?
+	$(CC) -c $(CFLAGS) $< -o $@
+
 clean:
 	rm -f $(OBJECTS)
 	rm -f *.so
+
 fclean: clean
 	rm -f $(NAME)
+
 re: fclean all
-.PHONY: all bonus clean fclean re
+
+.PHONY: all clean fclean re
