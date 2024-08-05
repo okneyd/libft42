@@ -6,7 +6,7 @@
 /*   By: ydemyden <ydemyden@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 18:23:58 by ydemyden          #+#    #+#             */
-/*   Updated: 2024/07/31 19:43:30 by ydemyden         ###   ########.fr       */
+/*   Updated: 2024/08/05 19:10:56 by ydemyden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 char	*ft_strrchr(const char *s, int c)
 {
 	int					i;
-	unsigned const char	*ps;
+	unsigned const char	uc;
 
-	ps = (unsigned const char *)s;
+	uc = (unsigned const char )c;
 	i = 0;
 	i = ft_strlen(s);
 	if (c == '\0')
@@ -29,7 +29,7 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	while (i != 0)
 	{
-		if (s[i - 1] == c)
+		if (s[i - 1] == uc)
 		{
 			return ((char *)&s[i - 1]);
 		}

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ydemyden <ydemyden@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/04 18:11:48 by ydemyden          #+#    #+#             */
-/*   Updated: 2024/08/04 18:25:47 by ydemyden         ###   ########.fr       */
+/*   Created: 2024/07/30 19:23:51 by ydemyden          #+#    #+#             */
+/*   Updated: 2024/08/05 18:23:29 by ydemyden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,29 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	*str;
+	char	nbr;
 
-	str = ft_itoa(n);
-	if (str)
+	if (n == -2147483648)
 	{
-		write(fd, str, ft_strlen(str));
-		free(str);
+		write(fd, "-2147483648", 11);
+		return ;
+	}
+	if (n < 0)
+	{
+		write(fd, "-", 1);
+		n = -n;
+		ft_putnbr_fd(n, fd);
+		return ;
+	}
+	if (n > 9)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
+	}
+	else
+	{
+		nbr = n + 48;
+		write(fd, &nbr, 1);
 	}
 }
 

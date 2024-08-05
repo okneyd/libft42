@@ -6,7 +6,7 @@
 /*   By: ydemyden <ydemyden@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 17:02:44 by ydemyden          #+#    #+#             */
-/*   Updated: 2024/07/31 19:42:26 by ydemyden         ###   ########.fr       */
+/*   Updated: 2024/08/05 19:11:01 by ydemyden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,17 @@
 char	*ft_strchr(const char *s, int c)
 {
 	int	z;
+	unsigned const char	uc;
 
+	uc = (unsigned const char)c;
 	z = 0;
 	while (s[z] != '\0')
 	{
-		if (s[z] == c)
+		if (s[z] == uc)
 			return ((char *)&s[z]);
 		z++;
 	}
-	if (c == '\0')
+	if (uc == '\0')
 		return ((char *)&s[z]);
 	return (NULL);
 }

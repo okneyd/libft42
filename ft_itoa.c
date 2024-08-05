@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ydemyden <ydemyden@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/03 17:20:47 by ydemyden          #+#    #+#             */
-/*   Updated: 2024/08/04 18:23:36 by ydemyden         ###   ########.fr       */
+/*   Created: 2024/07/30 19:16:21 by ydemyden          #+#    #+#             */
+/*   Updated: 2024/08/05 19:18:46 by ydemyden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,23 @@
 // as an argument.Negative numbers must be handled.
 #include "libft.h"
 
+int	 counting(int n)
+{
+	int	digits;
+
+	digits = 0;
+	if (n == 0)
+		return (1);
+	
+}
+
+
+
+
+
 char	*convertion(int y, int copy, int nmb, char *str)
 {
-	while (copy != 0)
+	while (copy)
 	{
 		copy = copy / 10;
 		nmb++;
@@ -26,10 +40,15 @@ char	*convertion(int y, int copy, int nmb, char *str)
 	str = (char *)malloc(nmb + 1);
 	if (!str)
 		return (NULL);
+	if (y == 0)
+	{
+		str[0] = '0';
+		return (str);
+	}
 	if (y < 0)
 	{
 		str[0] = '-';
-		y = y * (-1);
+		y = -y;
 	}
 	str[nmb] = '\0';
 	nmb--;
@@ -60,12 +79,11 @@ char	*ft_itoa(int n)
 			return (NULL);
 		str[0] = '0';
 		str[1] = '\0';
+		return (str);
 	}
 	if (n == -2147483648)
-		return ("-2147483648");
-	if (y != 0)
-		return (convertion(y, copy, nmb, str));
-	return (str);
+		return (ft_strdup("-2147483648"));
+	return (convertion(y, copy, nmb, str));
 }
 
 // int main()
