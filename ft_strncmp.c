@@ -6,7 +6,7 @@
 /*   By: ydemyden <ydemyden@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 20:43:18 by ydemyden          #+#    #+#             */
-/*   Updated: 2024/07/31 19:42:47 by ydemyden         ###   ########.fr       */
+/*   Updated: 2024/08/06 18:55:55 by ydemyden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,12 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	ps1 = (unsigned const char *)s1;
 	ps2 = (unsigned const char *)s2;
 	z = 0;
-	while (n--)
+	while (z < n)
 	{
-		if (ps1[z] < ps2[z])
-			return (-1);
-		if (ps1[z] > ps2[z])
-			return (1);
-		if (ps1[z] == ps2[z])
+		if (ps1[z] != ps2[z] || ps1[z] == '\0'
+			|| ps2[z] == '\0')
 		{
-			if (n == 0)
-				return (0);
+			return (ps1[z] - ps2[z]);
 		}
 		z++;
 	}

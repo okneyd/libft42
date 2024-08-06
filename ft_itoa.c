@@ -6,13 +6,19 @@
 /*   By: ydemyden <ydemyden@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 19:16:21 by ydemyden          #+#    #+#             */
-/*   Updated: 2024/08/05 19:24:33 by ydemyden         ###   ########.fr       */
+/*   Updated: 2024/08/06 18:40:33 by ydemyden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // Allocates and returns a string representing the integer received 
 // as an argument.Negative numbers must be handled.
 #include "libft.h"
+
+char	*zeroing(char *str)
+{
+	str[0] = '0';
+	return (str);
+}
 
 char	*convertion(int y, int copy, int nmb, char *str)
 {
@@ -27,10 +33,7 @@ char	*convertion(int y, int copy, int nmb, char *str)
 	if (!str)
 		return (NULL);
 	if (y == 0)
-	{
-		str[0] = '0';
-		return (str);
-	}
+		zeroing(str);
 	if (y < 0)
 	{
 		str[0] = '-';
@@ -40,9 +43,8 @@ char	*convertion(int y, int copy, int nmb, char *str)
 	nmb--;
 	while (y != 0)
 	{
-		str[nmb] = (y % 10) + '0';
+		str[nmb--] = (y % 10) + '0';
 		y = y / 10;
-		nmb--;
 	}
 	return (str);
 }
@@ -63,7 +65,7 @@ char	*ft_itoa(int n)
 		str = malloc(2);
 		if (!str)
 			return (NULL);
-		str[0] = '0';
+		zeroing(str);
 		str[1] = '\0';
 		return (str);
 	}

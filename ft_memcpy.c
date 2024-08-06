@@ -6,7 +6,7 @@
 /*   By: ydemyden <ydemyden@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 20:20:42 by ydemyden          #+#    #+#             */
-/*   Updated: 2024/07/31 19:42:15 by ydemyden         ###   ########.fr       */
+/*   Updated: 2024/08/06 18:59:19 by ydemyden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,11 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	char		*pdest;
 	const char	*psrc;
 
-	z = 0;
 	pdest = (char *)dest;
 	psrc = (const char *)src;
+	if (!dest && !src)
+		return (NULL);
+	z = 0;
 	while (n > z)
 	{
 		pdest[z] = psrc[z];

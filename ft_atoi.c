@@ -6,7 +6,7 @@
 /*   By: ydemyden <ydemyden@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 19:12:57 by ydemyden          #+#    #+#             */
-/*   Updated: 2024/07/31 18:45:52 by ydemyden         ###   ########.fr       */
+/*   Updated: 2024/08/06 19:54:49 by ydemyden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,18 @@ int	ft_atoi(const char *nptr)
 
 	n = 0;
 	sign = 1;
-	while (*nptr == ' ' || *nptr == '\t' || *nptr == '\n' || *nptr == '\v'
-		|| *nptr == '\f' || *nptr == '\r')
+	while ((*nptr == ' ' || *nptr == '\t' || *nptr == '\n' || *nptr == '\v'
+			|| *nptr == '\f' || *nptr == '\r' || *nptr == '\0')
+		&& *nptr != '\0')
 		nptr++;
-	if (*nptr == '-')
+	if (*nptr == '-' && *nptr != '\0')
 	{
 		sign = -1;
 		nptr++;
 	}
 	else if (*nptr == '+')
 		nptr++;
-	while (*nptr >= '0' && *nptr <= '9')
+	while (*nptr >= '0' && *nptr <= '9' && *nptr != '\0')
 	{
 		n = n * 10 + (*nptr - '0');
 		nptr++;

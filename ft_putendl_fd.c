@@ -6,7 +6,7 @@
 /*   By: ydemyden <ydemyden@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 19:22:51 by ydemyden          #+#    #+#             */
-/*   Updated: 2024/08/05 17:55:19 by ydemyden         ###   ########.fr       */
+/*   Updated: 2024/08/06 20:15:03 by ydemyden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
+	if (s == NULL)
+		return ;
 	while (*s)
 	{
 		write(fd, s, 1);

@@ -6,7 +6,7 @@
 /*   By: ydemyden <ydemyden@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 21:08:31 by ydemyden          #+#    #+#             */
-/*   Updated: 2024/07/31 19:42:07 by ydemyden         ###   ########.fr       */
+/*   Updated: 2024/08/06 18:50:33 by ydemyden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,16 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t		z;
-	const char	*ps;
+	size_t				z;
+	const unsigned char	*ps;
+	unsigned char		uc;
 
 	z = 0;
-	ps = (const char *)s;
+	ps = (const unsigned char *)s;
+	uc = (unsigned char)c;
 	while (z < n)
 	{
-		if (ps[z] == c)
+		if (ps[z] == uc)
 		{
 			return ((void *)&ps[z]);
 		}
