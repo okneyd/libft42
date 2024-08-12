@@ -6,7 +6,7 @@
 /*   By: ydemyden <ydemyden@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 19:23:51 by ydemyden          #+#    #+#             */
-/*   Updated: 2024/08/06 20:12:25 by ydemyden         ###   ########.fr       */
+/*   Updated: 2024/08/07 16:58:56 by ydemyden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,7 @@ void	ft_putnbr_fd(int n, int fd)
 	{
 		write(fd, "-", 1);
 		n = -n;
-		ft_putnbr_fd(n, fd);
 	}
-	else
 	if (n > 9)
 	{
 		ft_putnbr_fd(n / 10, fd);
@@ -36,7 +34,7 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	else
 	{
-		nbr = n + 48;
+		nbr = n + '0';
 		write(fd, &nbr, 1);
 	}
 }

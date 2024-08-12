@@ -6,7 +6,7 @@
 /*   By: ydemyden <ydemyden@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 19:35:51 by ydemyden          #+#    #+#             */
-/*   Updated: 2024/08/06 19:12:15 by ydemyden         ###   ########.fr       */
+/*   Updated: 2024/08/07 18:36:02 by ydemyden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,26 @@
 // The array must end with a NULL pointer.
 #include "libft.h"
 
-static size_t	get_num_of_strings(char const *s, char c)
+size_t	n_substr(char const *s, char c)
 {
 	size_t	i;
-	size_t	n;
 
 	i = 0;
-	n = 0;
 	while (*s)
 	{
-		while (*s == c && *s)
+		while (*s == c)
 			s++;
-		if (*s != c && *s)
+		if (*s)
 		{
-			n++;
-			while (*s != c && *s)
+			i++;
+			while (*s && *s != c)
 				s++;
 		}
 	}
-	return (n);
+	return (i);
 }
 
-static size_t	get_len_of_substring(char const *s, size_t i, char c)
+size_t	substr_len(char const *s, size_t i, char c)
 {
 	size_t	len;
 
@@ -49,22 +47,22 @@ static size_t	get_len_of_substring(char const *s, size_t i, char c)
 	return (len);
 }
 
-static int	*alloc_mem_substrings(char const *s, char **str, char c)
+int	*allocation(char const *s, char **str, char c)
 {
 	size_t	i;
-	size_t	y;
 	size_t	x;
+	size_t	y;
 
 	i = 0;
-	y = 0;
 	x = 0;
+	y = 0;
 	while (s[i] != '\0')
 	{
 		while (s[i] == c)
 			i++;
-		y = get_len_of_substring(s, i, c);
+		y = substr_len(s, i, c);
 		str[x] = ft_calloc((y + 1), sizeof(char));
-		if (str[x] == NULL)
+		if (!str[x])
 			return (NULL);
 		i = i + y;
 		if (s[i] != '\0')
@@ -73,12 +71,12 @@ static int	*alloc_mem_substrings(char const *s, char **str, char c)
 	return (0);
 }
 
-static void	create_new_arr(char const *s, char **str, char c)
+void	copy(char const *s, char **str, char c)
 {
 	size_t	i;
 	size_t	y;
 	size_t	x;
-	size_t	substr_len;
+	size_t	substr_l;
 
 	i = 0;
 	y = 0;
@@ -89,50 +87,42 @@ static void	create_new_arr(char const *s, char **str, char c)
 			i++;
 		if (s[i] == '\0')
 			break ;
-		substr_len = get_len_of_substring(s, i, c);
+		substr_l = substr_len(s, i, c);
 		y = -1;
-		while (++y < substr_len)
+		while (++y < substr_l)
 		{
-			str[x][y] = s[i];
-			i++;
+			str[x][y] = s[i++];
 		}
-		str[x][y] = '\0';
-		x++;
+		str[x++][y] = '\0';
 	}
 	str[x] = NULL;
 }
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	x;
-	size_t	y;
-	size_t	substr_num;
+	size_t	substr_n;
 	char	**str;
-	size_t	i;
 
-	x = 0;
-	y = 0;
-	if (s == NULL)
+	if (!s)
 		return (NULL);
-	substr_num = get_num_of_strings(s, c);
-	if (substr_num == 0)
+	substr_n = n_substr(s, c);
+	if (substr_n == 0)
 		return (ft_calloc(1, sizeof(char *)));
-	i = 0;
-	str = ft_calloc((substr_num + 1), sizeof(char *));
-	if (str == NULL)
+	str = ft_calloc((substr_n + 1), sizeof(char *));
+	if (!str)
 		return (NULL);
-	alloc_mem_substrings(s, str, c);
-	create_new_arr(s, str, c);
+	allocation(s, str, c);
+	copy(s, str, c);
 	return (str);
 }
 
 // int main(void)
 // {
-// 	char *str = "ahoj ako sa mas";
-// 	char **istr = ft_split(str, 0);
-// 	printf ("%s\n", istr[0]);
-// 	printf ("%s\n", istr[1]);
-// 	printf ("%s\n", istr[2]);
-// 	// printf ("%s\n", istr[3]);
+// 	char *s = "You will do it";
+// 	char **str = ft_split(str, 0);
+// 	printf ("%s\n", str[0]);
+// 	printf ("%s\n", str[1]);
+// 	printf ("%s\n", str[2]);
+// 	// printf ("%s\n", str[3]);
 // 	return (0);
 // }
